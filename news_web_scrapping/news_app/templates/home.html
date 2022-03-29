@@ -18,6 +18,20 @@
 
             <div class="col-md-3">
 
+                    <h2>Search By Country</h2>
+                    <form action ="" method="get">
+                        <input type="text" name="country">
+                        <button type="submit" value="Search">Search</button>
+                    </form>
+                    
+
+                    <center>Country</center>
+                <ul class="list-group">
+                    <li class="list-group-item"><a class="btn btn-info" href="{% url 'home' %}?country=in">India - in</a></li>
+                    <li class="list-group-item"><a class="btn btn-success" href="{% url 'home' %}?country=us">US - us</a></li>
+                    <li class="list-group-item"><a class="btn btn-primary" href="{% url 'home' %}?country=ch">China - ch</a></li>
+                    <li class="list-group-item"><a class="btn btn-danger" href="{% url 'home' %}?country=cn">Canada - cn</a></li>
+                </ul>
 
                     
             </div>
@@ -26,12 +40,39 @@
 
                 {% for i in articles %}
 
+                    <div class="card rounded shadow-lg m-2" style="width: 38rem;">
+                        <img src="{{ i.urlToImage }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <p class="card-title">Author: {{ i.author }}</p>
+                        <h5 class="card-title">{{ i.title }}</h5>
+                        <p class="card-title">Source: {{ i.source.name }}</p>
+                        <p class="card-text">{{ i.description }}</p>
+                        <hr>
+                        <small>Published at: {{ i.publishedAt }} </small>
+                        <a href="{{ i.url }}" target="_blank" class="btn btn-success m-1">Read More..</a>
+                        </div>
+                    </div>
 
                 {% endfor %}
 
             </div>
             <div class="col-md-3">
                 <h2>Search By Category</h2>
+                    <form action ="" method="get">
+                        <input type="text" name="category">
+                        <button type="submit" value="Search">Search</button>
+                    </form>
+
+                <center>Category</center>
+                <ul class="list-group">
+                    <li class="list-group-item"><a class="btn btn-info" href="{% url 'home' %}?category=technology">Technology</a></li>
+                    <li class="list-group-item"><a class="btn btn-success" href="{% url 'home' %}?category=Science">Science</a></li>
+                    <li class="list-group-item"><a class="btn btn-primary" href="{% url 'home' %}?category=sports">Sports</a></li>
+                    <li class="list-group-item"><a class="btn btn-danger" href="{% url 'home' %}?category=entertainment">Entertainment</a></li>
+                    <li class="list-group-item"><a class="btn btn-info" href="{% url 'home' %}?category=business">Business</a></li>
+                    <li class="list-group-item"><a class="btn btn-success" href="{% url 'home' %}?category=health">Health</a></li>
+                    <li class="list-group-item"><a class="btn btn-secondary" href="{% url 'home' %}?category=general">General</a></li>
+                </ul>
                 
             </div>
         </div>
